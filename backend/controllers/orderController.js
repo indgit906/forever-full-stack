@@ -48,7 +48,7 @@ const placeOrder = async (req,res) => {
 }
 
 // Placing orders using Stripe Method
-//*const placeOrderStripe = async (req,res) => {
+/*const placeOrderStripe = async (req,res) => {
     try {
         
         const { userId, items, amount, address} = req.body
@@ -102,10 +102,10 @@ const placeOrder = async (req,res) => {
         console.log(error)
         res.json({success:false,message:error.message})
     }
-}*/
+}
 
 // Verify Stripe 
-//*const verifyStripe = async (req,res) => {
+const verifyStripe = async (req,res) => {
 
     const { orderId, success, userId } = req.body
 
