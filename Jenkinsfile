@@ -59,8 +59,8 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 sh '''
-                  docker stop backend frontend || true
-                  docker rm backend frontend || true
+                  docker stop backend frontend admin || true
+                  docker rm backend frontend admin || true
 
                   docker run -d --name backend -p 5000:5000 $BACKEND_IMAGE:latest
                   docker run -d --name frontend -p 80:80 $FRONTEND_IMAGE:latest
