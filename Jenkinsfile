@@ -5,6 +5,7 @@ pipeline {
         DOCKERHUB_CREDS = 'dockerhub-creds'
         BACKEND_IMAGE = 'inddocker786/forever-backend'
         FRONTEND_IMAGE = 'inddocker786/forever-frontend'
+	ADMIN_IMAGE    = 'inddocker786/forever-admin'
     }
 
     stages {
