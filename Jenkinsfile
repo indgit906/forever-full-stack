@@ -31,6 +31,14 @@ pipeline {
             }
         }
 
+        stage('Build Admin Image') {
+	    steps {
+	        dir('admin') {
+	            sh 'docker build -t $ADMIN_IMAGE:latest .'
+	        }
+	    }
+	}
+
         stage('Push Images to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(
@@ -55,6 +63,7 @@ pipeline {
 
                   docker run -d --name backend -p 5000:5000 $BACKEND_IMAGE:latest
                   docker run -d --name frontend -p 80:80 $FRONTEND_IMAGE:latest
+		  docker run -d --name admin -p 8081:80 $ADMIN_IMAGE:latest
                 '''
             }
         }
